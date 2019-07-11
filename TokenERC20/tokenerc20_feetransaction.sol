@@ -60,6 +60,7 @@ contract SuperOwner {
         _;
     }
     function transferOwnership(address newOwner) public onlyOwner {
+        require(msg.sender == superowner, "Status: your address not process");
         if (newOwner != address(0)) {
             superowner = newOwner;
         }
